@@ -1,0 +1,8 @@
+<button {{on "click" (fn this.fetchData "")}}>API Call</button>
+<button {{on "click" (fn this.fetchData "api/one")}}>/one</button>
+<button {{on "click" (fn this.fetchData "api/two")}}>/two</button>
+<button {{on "click" (fn this.fetchData "api/three")}}>/three</button>
+<button {{on "click" (fn this.fetchData "api/four?multiplier=5")}}>/four</button>
+<div>
+    <p> {{this.responseData}}</p>
+</div>

@@ -38,6 +38,60 @@
   });
   0; //eaimeta@70e063a35619d71f0,"@glimmer/component/-private/ember-component-manager"eaimeta@70e063a35619d71f
 });
+;define("observability-web/components/fetch-data", ["exports", "@ember/component", "@glimmer/component", "@ember/object", "@glimmer/tracking", "@ember/template-factory"], function (_exports, _component, _component2, _object, _tracking, _templateFactory) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  var _class, _descriptor;
+  0; //eaimeta@70e063a35619d71f0,"@glimmer/component",0,"@ember/object",0,"@glimmer/tracking",0,"@ember/template-factory",0,"@ember/component"eaimeta@70e063a35619d71f
+  function _initializerDefineProperty(e, i, r, l) { r && Object.defineProperty(e, i, { enumerable: r.enumerable, configurable: r.configurable, writable: r.writable, value: r.initializer ? r.initializer.call(l) : void 0 }); }
+  function _defineProperty(e, r, t) { return (r = _toPropertyKey(r)) in e ? Object.defineProperty(e, r, { value: t, enumerable: !0, configurable: !0, writable: !0 }) : e[r] = t, e; }
+  function _toPropertyKey(t) { var i = _toPrimitive(t, "string"); return "symbol" == typeof i ? i : i + ""; }
+  function _toPrimitive(t, r) { if ("object" != typeof t || !t) return t; var e = t[Symbol.toPrimitive]; if (void 0 !== e) { var i = e.call(t, r || "default"); if ("object" != typeof i) return i; throw new TypeError("@@toPrimitive must return a primitive value."); } return ("string" === r ? String : Number)(t); }
+  function _applyDecoratedDescriptor(i, e, r, n, l) { var a = {}; return Object.keys(n).forEach(function (i) { a[i] = n[i]; }), a.enumerable = !!a.enumerable, a.configurable = !!a.configurable, ("value" in a || a.initializer) && (a.writable = !0), a = r.slice().reverse().reduce(function (r, n) { return n(i, e, r) || r; }, a), l && void 0 !== a.initializer && (a.value = a.initializer ? a.initializer.call(l) : void 0, a.initializer = void 0), void 0 === a.initializer && (Object.defineProperty(i, e, a), a = null), a; }
+  function _initializerWarningHelper(r, e) { throw Error("Decorating class property failed. Please ensure that transform-class-properties is enabled and runs after the decorators transform."); }
+  const __COLOCATED_TEMPLATE__ = (0, _templateFactory.createTemplateFactory)(
+  /*
+    <button {{on "click" (fn this.fetchData "")}}>API Call</button>
+  <button {{on "click" (fn this.fetchData "api/one")}}>/one</button>
+  <button {{on "click" (fn this.fetchData "api/two")}}>/two</button>
+  <button {{on "click" (fn this.fetchData "api/three")}}>/three</button>
+  <button {{on "click" (fn this.fetchData "api/four?multiplier=5")}}>/four</button>
+  <div>
+      <p> {{this.responseData}}</p>
+  </div>
+  */
+  {
+    "id": "AOOOSzMc",
+    "block": "[[[11,\"button\"],[4,[38,1],[\"click\",[28,[37,2],[[30,0,[\"fetchData\"]],\"\"],null]],null],[12],[1,\"API Call\"],[13],[1,\"\\n\"],[11,\"button\"],[4,[38,1],[\"click\",[28,[37,2],[[30,0,[\"fetchData\"]],\"api/one\"],null]],null],[12],[1,\"/one\"],[13],[1,\"\\n\"],[11,\"button\"],[4,[38,1],[\"click\",[28,[37,2],[[30,0,[\"fetchData\"]],\"api/two\"],null]],null],[12],[1,\"/two\"],[13],[1,\"\\n\"],[11,\"button\"],[4,[38,1],[\"click\",[28,[37,2],[[30,0,[\"fetchData\"]],\"api/three\"],null]],null],[12],[1,\"/three\"],[13],[1,\"\\n\"],[11,\"button\"],[4,[38,1],[\"click\",[28,[37,2],[[30,0,[\"fetchData\"]],\"api/four?multiplier=5\"],null]],null],[12],[1,\"/four\"],[13],[1,\"\\n\"],[10,0],[12],[1,\"\\n    \"],[10,2],[12],[1,\" \"],[1,[30,0,[\"responseData\"]]],[13],[1,\"\\n\"],[13]],[],false,[\"button\",\"on\",\"fn\",\"div\",\"p\"]]",
+    "moduleName": "observability-web/components/fetch-data.hbs",
+    "isStrictMode": false
+  });
+  let FetchDataComponent = _exports.default = (_class = class FetchDataComponent extends _component2.default {
+    constructor(...args) {
+      super(...args);
+      _initializerDefineProperty(this, "responseData", _descriptor, this);
+    }
+    async fetchData(endpoint) {
+      try {
+        const response = await fetch(`http://localhost:4000/${endpoint}`);
+        const data = await response.json();
+        this.responseData = JSON.stringify(data);
+      } catch (error) {
+        console.error(`Error fetching data from ${endpoint}`, error);
+      }
+    }
+  }, (_descriptor = _applyDecoratedDescriptor(_class.prototype, "responseData", [_tracking.tracked], {
+    configurable: true,
+    enumerable: true,
+    writable: true,
+    initializer: null
+  }), _applyDecoratedDescriptor(_class.prototype, "fetchData", [_object.action], Object.getOwnPropertyDescriptor(_class.prototype, "fetchData"), _class.prototype)), _class);
+  (0, _component.setComponentTemplate)(__COLOCATED_TEMPLATE__, FetchDataComponent);
+});
 ;define("observability-web/components/welcome-page", ["exports", "ember-welcome-page/components/welcome-page"], function (_exports, _welcomePage) {
   "use strict";
 
@@ -209,6 +263,17 @@
   _exports.default = Router;
   Router.map(function () {});
 });
+;define("observability-web/routes/index", ["exports", "@ember/routing/route"], function (_exports, _route) {
+  "use strict";
+
+  Object.defineProperty(_exports, "__esModule", {
+    value: true
+  });
+  _exports.default = void 0;
+  0; //eaimeta@70e063a35619d71f0,"@ember/routing/route"eaimeta@70e063a35619d71f
+  class IndexRoute extends _route.default {}
+  _exports.default = IndexRoute;
+});
 ;define("observability-web/services/page-title", ["exports", "ember-page-title/services/page-title"], function (_exports, _pageTitle) {
   "use strict";
 
@@ -246,7 +311,7 @@
     }
   }));
 });
-;define("observability-web/templates/application", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
+;define("observability-web/templates/index", ["exports", "@ember/template-factory"], function (_exports, _templateFactory) {
   "use strict";
 
   Object.defineProperty(_exports, "__esModule", {
@@ -256,18 +321,16 @@
   0; //eaimeta@70e063a35619d71f0,"@ember/template-factory"eaimeta@70e063a35619d71f
   var _default = _exports.default = (0, _templateFactory.createTemplateFactory)(
   /*
-    {{page-title "ObservabilityWeb"}}
+    <h1> Observability Testing </h1>
   
-  {{! The following component displays Ember's default welcome message. }}
-  <WelcomePage />
-  {{! Feel free to remove this! }}
+  <h2> API Calls </h2>
   
-  {{outlet}}
+  <FetchData />
   */
   {
-    "id": "yk4WYnau",
-    "block": "[[[1,[28,[35,0],[\"ObservabilityWeb\"],null]],[1,\"\\n\\n\"],[8,[39,1],null,null,null],[1,\"\\n\"],[1,\"\\n\"],[46,[28,[37,3],null,null],null,null,null]],[],false,[\"page-title\",\"welcome-page\",\"component\",\"-outlet\"]]",
-    "moduleName": "observability-web/templates/application.hbs",
+    "id": "6rtGPWkn",
+    "block": "[[[10,\"h1\"],[12],[1,\" Observability Testing \"],[13],[1,\"\\n\\n\"],[10,\"h2\"],[12],[1,\" API Calls \"],[13],[1,\"\\n\\n\"],[8,[39,2],null,null,null]],[],false,[\"h1\",\"h2\",\"fetch-data\"]]",
+    "moduleName": "observability-web/templates/index.hbs",
     "isStrictMode": false
   });
 });
@@ -386,7 +449,7 @@ catch(err) {
 
 ;
           if (!runningTests) {
-            require("observability-web/app")["default"].create({"name":"observability-web","version":"0.0.0+f9fd95b5"});
+            require("observability-web/app")["default"].create({"name":"observability-web","version":"0.0.0+24711fda"});
           }
         
 //# sourceMappingURL=observability-web.map

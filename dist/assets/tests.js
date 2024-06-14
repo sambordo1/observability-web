@@ -43,6 +43,47 @@ define("observability-web/tests/helpers/index", ["exports", "ember-qunit"], func
     // Additional setup for unit tests can be done here.
   }
 });
+define("observability-web/tests/integration/components/fetch-buttons-test", ["qunit", "observability-web/tests/helpers", "@ember/test-helpers", "@ember/template-factory"], function (_qunit, _helpers, _testHelpers, _templateFactory) {
+  "use strict";
+
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"observability-web/tests/helpers",0,"@ember/test-helpers",0,"@ember/template-factory"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Integration | Component | fetch-buttons', function (hooks) {
+    (0, _helpers.setupRenderingTest)(hooks);
+    (0, _qunit.test)('it renders', async function (assert) {
+      // Set any properties with this.set('myProperty', 'value');
+      // Handle any actions with this.set('myAction', function(val) { ... });
+
+      await (0, _testHelpers.render)((0, _templateFactory.createTemplateFactory)(
+      /*
+        <FetchButtons />
+      */
+      {
+        "id": "etRGnza9",
+        "block": "[[[8,[39,0],null,null,null]],[],false,[\"fetch-buttons\"]]",
+        "moduleName": "/Users/sbordo/Documents/Observability/sample-app/observability-web/observability-web/tests/integration/components/fetch-buttons-test.js",
+        "isStrictMode": false
+      }));
+      assert.dom().hasText('');
+
+      // Template block usage:
+      await (0, _testHelpers.render)((0, _templateFactory.createTemplateFactory)(
+      /*
+        
+            <FetchButtons>
+              template block text
+            </FetchButtons>
+          
+      */
+      {
+        "id": "cfpVHgPo",
+        "block": "[[[1,\"\\n      \"],[8,[39,0],null,null,[[\"default\"],[[[[1,\"\\n        template block text\\n      \"]],[]]]]],[1,\"\\n    \"]],[],false,[\"fetch-buttons\"]]",
+        "moduleName": "/Users/sbordo/Documents/Observability/sample-app/observability-web/observability-web/tests/integration/components/fetch-buttons-test.js",
+        "isStrictMode": false
+      }));
+      assert.dom().hasText('template block text');
+    });
+  });
+});
 define("observability-web/tests/test-helper", ["observability-web/app", "observability-web/config/environment", "qunit", "@ember/test-helpers", "qunit-dom", "ember-qunit"], function (_app, _environment, QUnit, _testHelpers, _qunitDom, _emberQunit) {
   "use strict";
 
@@ -50,6 +91,18 @@ define("observability-web/tests/test-helper", ["observability-web/app", "observa
   (0, _testHelpers.setApplication)(_app.default.create(_environment.default.APP));
   (0, _qunitDom.setup)(QUnit.assert);
   (0, _emberQunit.start)();
+});
+define("observability-web/tests/unit/routes/index-test", ["qunit", "observability-web/tests/helpers"], function (_qunit, _helpers) {
+  "use strict";
+
+  0; //eaimeta@70e063a35619d71f0,"qunit",0,"observability-web/tests/helpers"eaimeta@70e063a35619d71f
+  (0, _qunit.module)('Unit | Route | index', function (hooks) {
+    (0, _helpers.setupTest)(hooks);
+    (0, _qunit.test)('it exists', function (assert) {
+      let route = this.owner.lookup('route:index');
+      assert.ok(route);
+    });
+  });
 });
 define('observability-web/config/environment', [], function() {
   var prefix = 'observability-web';
